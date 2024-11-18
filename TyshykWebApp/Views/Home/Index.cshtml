@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Matrix Calculation</h1>
+
+    <form asp-action="ProcessMatrices" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="rows">Number of Rows</label>
+            <input type="number" id="rows" name="rows" class="form-control" required min="1">
+        </div>
+        <div class="form-group">
+            <label for="cols">Number of Columns</label>
+            <input type="number" id="cols" name="cols" class="form-control" required min="1">
+        </div>
+        <button type="submit" class="btn btn-primary">Start Calculation</button>
+    </form>
+</div>

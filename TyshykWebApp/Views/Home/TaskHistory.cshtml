@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Computation>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Progress</th>
+            <th>Created At</th>
+            <th>Finished At</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entity in Model)
+        {
+            <tr>
+                <td>@entity.Status</td>
+                <td>@entity.ProgressPercentage</td>
+                <td>@entity.StartTime</td>
+                <td>@entity.EndTime</td>
+                <td>@entity.Result</td>
+            </tr>
+        }
+    </tbody>
+</table>

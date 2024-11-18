@@ -1,0 +1,37 @@
+﻿@model Computation
+
+<div class="text-center">
+    <h1 class="display-4">Task Status</h1>
+
+    <p><strong>Task ID:</strong> @Model.Id</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Progress:</strong> @Model.ProgressPercentage%</p>
+
+    @if (Model.Status == "Completed")
+    {
+        <div class="alert alert-success" role="alert">
+            Calculation completed successfully!
+            <pre>@Model.Result</pre>
+        </div>
+    }
+    else if (Model.Status == "Cancelled")
+    {
+        <div class="alert alert-warning" role="alert">
+            Calculation was cancelled.
+        </div>
+    }
+    else if (Model.Status == "InProgress")
+    {
+        <div class="alert alert-info" role="alert">
+            Calculation is in progress...
+        </div>
+    }
+
+    @if (Model.CanCancel)
+    {
+        <form asp-action="CancelTask" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Cancel Task</button>
+        </form>
+    }
+</div>
